@@ -25,7 +25,6 @@ tax - En skatteprosent - float (standardverdi for skatteprosent skal være 25%) 
 
 
 '''
-all_wares = {}
 
 def calculate_shopping_cart_price(shopping_cart, all_wares, tax=1.25):
     cart_price = 0
