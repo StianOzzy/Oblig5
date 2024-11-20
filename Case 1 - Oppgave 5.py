@@ -20,6 +20,14 @@ Lag fornuftige utskrifter der du mener det kan være nyttig for brukeren å få 
 
 Denne funksjonen skal hete add_number_or_ware_to_shopping_cart() og skal ta minst fire parametere:
 
+1    ware_key - En varenøkkel - string
+
+2    ware - En varereferanse - dictionary
+
+3    shopping_cart - En handlevogn - dictionary
+
+4    number_of_ware - Antallet av varen - int (standardverdi skal være 1)
+
 '''
 
 def add_ware_to_shopping_cart(ware_key, ware, shopping_cart, number_of_ware):

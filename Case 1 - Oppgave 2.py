@@ -6,6 +6,8 @@ Bemerk at hvis listen er tom, vil denne utregningen føre til en ZeroDivisionErr
 
 Funksjonen skal hete calculate_average_ware_rating() og skal ta minst én parameter:
 
+1   ware - En varereferanse - dictionary
+
 '''
 
 def calculate_average_ware_rating(ware):

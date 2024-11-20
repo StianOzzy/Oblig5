@@ -6,6 +6,8 @@ webshop_frontent.py (all_wares-variabelen).
 
 Funksjonen skal hete get_all_wares_in_stock() og skal ta minst én parameter:
 
+1    all_wares - Et vareregister – dictionary
+
 '''
 
 def get_all_wares_in_stock(warelist):

@@ -9,6 +9,8 @@ Description: A non-existent ware used only for this example.
 
 Funksjonen skal hete print_ware_information() og skal ta én parameter:
 
+1   ware - En varereferanse - dictionary
+
 '''
 
 # Oppgi ware i format: (all_wares["amd_processor"])

@@ -5,6 +5,10 @@ spesifisert antall av en gitt vare finnes på lager.
 
 Denne funksjonen skal hete is_number_of_ware_in_stock() og skal minst ta to parametere:
 
+1    ware - En varereferanse - dictionary
+
+2    number_of_ware - Antallet av denne varen - int
+
 '''
 
 def is_number_of_ware_in_stock(ware, number_of_ware):
