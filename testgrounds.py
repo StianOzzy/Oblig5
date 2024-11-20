@@ -75,4 +75,7 @@ my_cart = {}
 print(add_ware_to_shopping_cart(all_wares["amd_processor"]["name"], "amd_processor", my_cart, 1))
 print(add_ware_to_shopping_cart(all_wares["playstation_5"]["name"], "playstation_5", my_cart, 1))
 print(add_ware_to_shopping_cart(all_wares["hdmi_cable"]["name"], "hdmi_cable", my_cart, 4))
-print(f"The current shopping cart contains: {my_cart}")
+print(f"The current shopping cart is: {my_cart}")
+
+print("\n\n\n")
+print(my_cart["amd_processor"])

@@ -25,11 +25,14 @@ tax - En skatteprosent - float (standardverdi for skatteprosent skal være 25%) 
 
 
 '''
-
+all_wares = {}
 
 def calculate_shopping_cart_price(shopping_cart, all_wares, tax=1.25):
-    '''Returnerer prisen av en handlevogn basert på varene i den.'''
-
+    cart_price = 0
+    for item in shopping_cart:
+        if item in all_wares:
+            cart_price += all_wares[item]["price"] * tax * my_cart[item]
+    return cart_price
 # -------------------------------------------------------------------------------------------------------------------- #
 
 all_wares = {
@@ -56,4 +59,25 @@ all_wares = {
 }
 }
 
+# Fra oppgave 5
+def add_ware_to_shopping_cart(ware_key, ware, shopping_cart, number_of_ware):
+    new_ware = all_wares[ware]
+    if new_ware["number_in_stock"] >= number_of_ware:
+        shopping_cart[ware] = number_of_ware
+        return f"{number_of_ware} instance(s) of {ware_key} were added to shopping cart\n"
+
+    elif new_ware["number_in_stock"] == 0:
+        return f"{ware_key} is not in stock, and could not be added to the shopping cart.\n"
+
+    else:
+        shopping_cart[ware_key] = new_ware["number_in_stock"]
+        return (f"Only {new_ware["number_in_stock"]} instance(s) of {ware_key} are in stock."
+                f"These were added to the shopping cart.\n")
+my_cart = {}
+print(add_ware_to_shopping_cart(all_wares["amd_processor"]["name"], "amd_processor", my_cart, 1))
+print(add_ware_to_shopping_cart(all_wares["playstation_5"]["name"], "playstation_5", my_cart, 1))
+print(add_ware_to_shopping_cart(all_wares["hdmi_cable"]["name"], "hdmi_cable", my_cart, 3))
+print(f"The current shopping cart contains: {my_cart}")
+
 # TEST
+print(f"Total price of cart: {calculate_shopping_cart_price(my_cart,all_wares)},- (Tax incl.)")
