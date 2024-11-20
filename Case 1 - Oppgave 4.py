@@ -1,20 +1,17 @@
 '''
 
-Skriv en funksjon som returnerer den gjennomsnittlige ratingen (en float verdi med én desimal)
-for en gitt vare. Det vil si summen av alle ratingene for denne varen delt på antallet ratinger.
-Bemerk at hvis listen er tom, vil denne utregningen føre til en ZeroDivisionError.
+Skriv en funksjon som returnerer en Boolean-verdi som representerer om et
+spesifisert antall av en gitt vare finnes på lager.
 
-Funksjonen skal hete calculate_average_ware_rating() og skal ta minst én parameter:
+Denne funksjonen skal hete is_number_of_ware_in_stock() og skal minst ta to parametere:
 
 '''
 
-def calculate_average_ware_rating(ware):
-    rating = 0
-    if len(ware["ratings"]) > 0:
-        for i in range(len(ware["ratings"])):
-            rating += ware["ratings"][i]
-        return round(rating/len(ware["ratings"]),1)
-    else: return 0
+def is_number_of_ware_in_stock(ware, number_of_ware):
+    if ware["number_in_stock"] == number_of_ware:
+        return True
+    else:
+        return False
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
@@ -42,6 +39,7 @@ all_wares = {
 }
 }
 
+# TEST
 
- # TEST
-print(calculate_average_ware_rating(all_wares["amd_processor"]))
+if is_number_of_ware_in_stock(all_wares["amd_processor"], 50):
+    print("Code works")

@@ -4,10 +4,6 @@
 #------------------------------------------
 
 def print_ware_information(ware):
-    print(f"Name: {ware.name}")
-    print(f"Price: {ware.price}")
-    print(f"Number in stock: {ware.stock}")
-    print(f"Description: {ware.description}")
 
 def calculate_average_ware_rating(ware):
     ''''Returnerer den gjennomsnittlige ratingen for en spesifisert vare.'''
