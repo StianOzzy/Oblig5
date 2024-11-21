@@ -43,7 +43,6 @@ def create_car(car_register,brand, model, price, year, month, new=True, km=0):
 # Case 2 - Oppgave 3
 
 def get_car_age(car):
-    # print(date.today().year)
     age = date.today().year - car["year"]
     return age
 
