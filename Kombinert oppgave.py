@@ -1,1 +1,0 @@
-# planlegger å sette sammen alt i denne filen når hver oppgave er ferdig
