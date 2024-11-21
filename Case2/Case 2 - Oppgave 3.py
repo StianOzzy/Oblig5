@@ -7,6 +7,7 @@ F.eks. Hvis bilen er fra 2019, og inneværende år er 2022, er bilen 3 år (vi b
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
+
 # Case 2 - Oppgave 1
 
 def print_car_information(car):
@@ -88,7 +89,7 @@ RENT_NEW_CAR__FEE = 1000
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
-# TEST Case 2 - Oppgave 2
+# TEST Case 2 - Oppgave 3
 
 toyota = car_register["toyotaBZ4X"]
 print(get_car_age(toyota))

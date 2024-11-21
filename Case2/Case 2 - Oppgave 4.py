@@ -1,8 +1,8 @@
 """
 
-Implementer funksjonen create_car() som tar forskjellig informasjon om en bil som parametere.
-Denne skal lage en dictionary for en bil med korrekte nøkkelverdier slik som beskrevet i Case-beskrivelsen,
-legger den inn i registeret og returner til slutt bil-dictionaryen.
+Implementer funksjonen next_eu_control() som returnerer et dato-objekt for neste EU-kontroll.
+EU-kontrollen skal skje hver 2. år, fra året og måneden bilen ble produsert.
+Det er OK om man setter den 1. i måneden i dato-objektet man returnerer.
 
 """
 
@@ -38,6 +38,23 @@ def create_car(car_register,brand, model, price, year, month, new=True, km=0):
         "km" : km
     }
     return car_key
+
+# -------------------------------------------------------------------------------------------------------------------- #
+
+
+# Case 2 - Oppgave 3
+
+def get_car_age(car):
+    age = date.today().year - car["year"]
+    return age
+
+# -------------------------------------------------------------------------------------------------------------------- #
+
+
+# Case 2 - Oppgave 4
+
+def next_eu_control(car):
+
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
@@ -81,11 +98,7 @@ RENT_NEW_CAR__FEE = 1000
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
-# TEST Case 2 - Oppgave 2
+# TEST Case 2 - Oppgave 4
 
-create_car(car_register,"Volvo", "V90", 850_000, 2021, 12,True,0)
-
-volvo = car_register["volvoV90"]
-print_car_information(volvo)
-print()
-print(f"Current cars in car_register\n{car_register}")
+toyota = car_register["toyotaBZ4X"]
+print(get_car_age(toyota))
