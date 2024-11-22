@@ -1,8 +1,10 @@
 """
 
-Implementer funksjonen rent_car_monthly_price() som returner månedsprisen for å leie en bil
-(prisen skal være avrundet til 2 desimaler). Den årlige prisen er 40% av totalprisen av bilen.
-Hvis bilen er ny, skal det også legges til en påslag på 1000kr i måneden.
+Basert på informasjonen om en bil som finnes i car_register-dictionarien,
+lag en klasse som skal kunne holde på informasjonen om en bil isteden.
+
+Legg også til metode-definisjonene (ikke implementasjon) for de funksjonene som er definert i
+del 3 av eksamen,som du mener kunne passe inn i denne klassen isteden. Begrunn kort hvorfor.
 
 """
 
@@ -79,6 +81,40 @@ def rent_car_monthly_price(car):
     return round(monthly_price,2)
 
 # -------------------------------------------------------------------------------------------------------------------- #
+
+
+# Case 2 - Oppgave 6
+
+def calculate_total_price(car):
+    totalprice = car["price"]
+    print(totalprice)
+    if car["new"]:
+        totalprice += 10783
+    else:
+        if date.today().year - car["year"] <= 3:
+            totalprice += 6681
+        elif date.today().year - car["year"] <= 11:
+            totalprice += 4034
+        elif date.today().year - car["year"] <= 29:
+            totalprice += 1729
+    return totalprice
+
+# -------------------------------------------------------------------------------------------------------------------- #
+
+
+# Case 2 - Oppgave 7
+
+class Car:
+    def __init__(self, brand, model, price, year, month, new=True, km=0):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.month = month
+        self.new = new
+        self.km = km
+
+# -------------------------------------------------------------------------------------------------------------------- #
+
 # Fra CAR_DEALERSHIP.PY
 
 from datetime import date
@@ -118,9 +154,3 @@ RENT_CAR_PERCENTAGE = 0.4
 RENT_NEW_CAR__FEE = 1000
 
 # -------------------------------------------------------------------------------------------------------------------- #
-
-# TEST Case 2 - Oppgave 5
-
-audi = car_register["audiRS3"]
-print(f"If you want to rent the {audi['brand']} {audi['model']} the monthly "
-      f"fee will be {rent_car_monthly_price(audi)}kr.")

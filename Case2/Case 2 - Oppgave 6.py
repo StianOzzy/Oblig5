@@ -1,8 +1,16 @@
 """
 
-Implementer funksjonen rent_car_monthly_price() som returner månedsprisen for å leie en bil
-(prisen skal være avrundet til 2 desimaler). Den årlige prisen er 40% av totalprisen av bilen.
-Hvis bilen er ny, skal det også legges til en påslag på 1000kr i måneden.
+Implementer funksjonen calculate_total_price() som returnerer totalprisen til bilen.
+I dette systemet er totalprisen prisen på bilen pluss en avgift. Avgiften for nye biler er
+10783kr uavhengig av alder på bilen. Er bilen en bruktbil gis avgiften basert på tabellen under:
+
+Alder på bil 	Avgift i kr
+0-3 	        6681
+4-11 	        4034
+12-29 	        1729
+30+ (veteran) 	0
+
+Forsøk å gjøre data fra denne tabellen gjenbrukbar.
 
 """
 
@@ -79,6 +87,25 @@ def rent_car_monthly_price(car):
     return round(monthly_price,2)
 
 # -------------------------------------------------------------------------------------------------------------------- #
+
+
+# Case 2 - Oppgave 6
+
+def calculate_total_price(car):
+    totalprice = car["price"]
+    print(totalprice)
+    if car["new"]:
+        totalprice += 10783
+    else:
+        if date.today().year - car["year"] <= 3:
+            totalprice += 6681
+        elif date.today().year - car["year"] <= 11:
+            totalprice += 4034
+        elif date.today().year - car["year"] <= 29:
+            totalprice += 1729
+    return totalprice
+
+# -------------------------------------------------------------------------------------------------------------------- #
 # Fra CAR_DEALERSHIP.PY
 
 from datetime import date
@@ -119,8 +146,7 @@ RENT_NEW_CAR__FEE = 1000
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
-# TEST Case 2 - Oppgave 5
+# TEST Case 2 - Oppgave 6
 
-audi = car_register["audiRS3"]
-print(f"If you want to rent the {audi['brand']} {audi['model']} the monthly "
-      f"fee will be {rent_car_monthly_price(audi)}kr.")
+audi = car_register['toyotaBZ4X']
+print(f"\nThe total price for this {audi['brand']} {audi['model']} is {calculate_total_price(audi)}kr.")

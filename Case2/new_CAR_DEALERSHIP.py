@@ -87,7 +87,18 @@ def rent_car_monthly_price(car):
 
 
 def calculate_total_price(car):
-    pass
+    totalprice = car["price"]
+    print(totalprice)
+    if car["new"]:
+        totalprice += 10783
+    else:
+        if date.today().year - car["year"] <= 3:
+            totalprice += 6681
+        elif date.today().year - car["year"] <= 11:
+            totalprice += 4034
+        elif date.today().year - car["year"] <= 29:
+            totalprice += 1729
+    return totalprice
 
 
 def is_new(car):
