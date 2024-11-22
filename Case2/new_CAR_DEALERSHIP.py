@@ -40,7 +40,7 @@ def print_car_information(car):
    print(f"Model: {car["model"]}")
    print(f"Price: {car["price"]}")
    print(f"Manufactured: {car["year"]}-{car["month"]}")
-   if car["new"] == True:
+   if car["new"]:
        print("Condition: New")
    else:
        print("Condition: Old")
@@ -65,11 +65,25 @@ def get_car_age(car):
 
 
 def next_eu_control(car):
-    pass
+
+    car_year = car["year"]
+    car_month = car["month"]
+    car_name = car["brand"] + " " + car["model"]
+
+    if car_month < 10:
+        car_month = "0"+str(car_month)
+
+    while car_year < date.today().year:
+        car_year += 2
+
+    return f"Next EU-control for the {car_name} is {str(car_year) + "-" + str(car_month) + "-01"}"
 
 
 def rent_car_monthly_price(car):
-    pass
+    monthly_price = car["price"]*RENT_CAR_PERCENTAGE/12
+    if car["new"]:
+        monthly_price += 1000
+    return round(monthly_price,2)
 
 
 def calculate_total_price(car):
