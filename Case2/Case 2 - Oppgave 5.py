@@ -57,7 +57,6 @@ def next_eu_control(car):
 
     car_year = car["year"]
     car_month = car["month"]
-    car_name = car["brand"] + " " + car["model"]
 
     if car_month < 10:
         car_month = "0"+str(car_month)
@@ -65,7 +64,7 @@ def next_eu_control(car):
     while car_year < date.today().year:
         car_year += 2
 
-    return f"Next EU-control for the {car_name} is {str(car_year) + "-" + str(car_month) + "-01"}"
+    return str(car_year) + "-" + str(car_month) + "-01"
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
