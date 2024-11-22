@@ -55,6 +55,17 @@ def get_car_age(car):
 
 def next_eu_control(car):
 
+    car_year = car["year"]
+    car_month = car["month"]
+    car_name = car["brand"] + " " + car["model"]
+
+    if car_month < 10:
+        car_month = "0"+str(car_month)
+
+    while car_year < date.today().year:
+        car_year += 2
+
+    return f"Next EU-control for the {car_name} is {str(car_year) + "-" + str(car_month) + "-01"}"
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
@@ -100,5 +111,5 @@ RENT_NEW_CAR__FEE = 1000
 
 # TEST Case 2 - Oppgave 4
 
-toyota = car_register["toyotaBZ4X"]
-print(get_car_age(toyota))
+audi = car_register["audiRS3"]
+print(next_eu_control(audi))
